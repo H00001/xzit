@@ -7,5 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    request.getRequestDispatcher("2.jsp").forward(request,response);
+    // 转发的新页面
+    // request和response 是传入的 `工作资料` 交接工作
+    // 进行控制权转交给新页面，所有request和response也要携带
+    //request.getRequestDispatcher("2.jsp").forward(request,response);
 %>
+
+<jsp:forward page="https://baidu.com"></jsp:forward>
