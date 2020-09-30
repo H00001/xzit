@@ -1,0 +1,13 @@
+# 查找account表中的所有的数据
+SELECT a.* FROM `account` as a
+# 统计表中数据的条数
+SELECT count(1) FROM `account` as a
+# 查询数学成绩大于40
+SELECT a.* from `account` as a where a.math>70
+# 通过数学成绩进行排序
+SELECT a.* from `account` as a ORDER BY a.math ASC
+# 只对数学成绩大于40的人进行排序
+SELECT a.* from `account` as a where a.math>40 order by  ASC
+SELECT SUM(a.math),a.name from `account` as a group by a.english having a.english > 10
+# 打印所有学生的数学信息，姓名，班级名
+SELECT a.math,a.name,b.name from `account` as a, `class` as b where a.id=b.id
