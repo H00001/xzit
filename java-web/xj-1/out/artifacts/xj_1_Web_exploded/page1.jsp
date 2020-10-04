@@ -12,5 +12,5 @@
     s.setAttribute
             ("times:"+i,s.getAttribute("times:"+i)==null
                     ?1:((Integer)s.getAttribute("times:"+i))+1);
-    out.println(s.getAttribute("times"+i));
+    out.println(s.getAttribute("times:"+i));
 %>

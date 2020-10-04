@@ -20,6 +20,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jsp-api" level="project" />
-    <orderEntry type="library" name="jsp-api1" level="project" />
   </component>
 </module>

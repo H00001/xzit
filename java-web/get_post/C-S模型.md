@@ -28,13 +28,14 @@ xxx:xxx
 
 ```
 
-1. 我们首先看第一行`GET`是请求方法，除了有`GET`这种请求方法之外，还有`POST`,`PUT`,`HEAD`,`DELETE`,`PATCH`等方法，但是常用的只有 `GET`,`POST`，其中`POST`相比于`GET`除了在首部变成`POST`开头之外，参数位置也稍有不同。
-
+1. 我们称前4行这结构为请求头，中间第5行为请求空行，第6行为请求体，当然请求体
+2. 我们首先看第一行`GET`是请求方法，除了有`GET`这种请求方法之外，还有`POST`,`PUT`,`HEAD`,`DELETE`,`PATCH`等方法，但是常用的只有 `GET`,`POST`，其中`POST`相比于`GET`除了在首部变成`POST`开头之外，参数位置也稍有不同。
 2. `/pen.html?color=red`是资源和参数
 
 3. http是协议
 
-4. 那么来看下POST的报文样式，相比于`GET`，将参数移动到了下面
+5. 那么来看下POST的报文样式，相比于`GET`，将参数移动到了下面
+6. 我们称前4行这结构为请求头，中间第5行为请求空行，第6行为请求体，请求体为color=red&size=big，所以POST吧参数放在请求体
 ```http
 POST /pen.html http/1.1
 connection:keep-active

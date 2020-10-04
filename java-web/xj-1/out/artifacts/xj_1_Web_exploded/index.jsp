@@ -16,6 +16,5 @@
         out.println(v);
     }
 
-    request.getSession().setAttribute("id",1);
 %>
 <%=a%>

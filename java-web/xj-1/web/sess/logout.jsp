@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     // 让session失效可以注销登录
-    //session.invalidate();
+    session.invalidate();
     // 给 session存储的信息清空
-    session.removeAttribute("id");
+    // session.removeAttribute("id");
 %>
