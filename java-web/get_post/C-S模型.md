@@ -44,7 +44,7 @@ xxx:xxx
  
 color=red&size=big
 ```
->POST主要用在登陆
+>POST主要用在登录
 
 看完了第一行，剩下的行都是属性，例如属性host的属性值是baidu.com，属性的形式是k：v对，也可以自定义属性。多对属性通过换行分割。
 
