@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.pool.MySqlConnection;
 import com.example.pool.MysqlConnectionPool;
+import com.example.util.Configure;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class DBHelperUpdate implements Closeable {
         // 构造函数创建一个java-mysql连接
         // jdbc:mysql://ip:3306/mydb
         // 初始化连接池
-        pool = new MysqlConnectionPool();
+        pool = new MysqlConnectionPool(10);
        // con = DriverManager.getConnection(url,"root","root");
     }
     public int Update(String sql,SqlExecutor<Void,PreparedStatement> exc) throws Exception{

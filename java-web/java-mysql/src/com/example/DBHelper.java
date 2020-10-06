@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.util.Configure;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.sql.*;

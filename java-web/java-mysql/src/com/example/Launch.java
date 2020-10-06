@@ -1,8 +1,5 @@
 package com.example;
 
-import com.example.dao.AccountDao;
-import com.example.dao.AccountDaoUpdate;
-
 public class Launch {
 
     public static void main(String[] args) throws Exception{
@@ -11,7 +8,6 @@ public class Launch {
         // 比如之前是mysqldao
         // 换成了 sqlserver dao
         // 那么不必改query代码，只需要把传进去的旧的dao更改为新的
-        new AccountDaoUpdate().deleteById(6);
 
 
         /**
