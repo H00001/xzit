@@ -7,9 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    ServletContext s = application;
-    s.setAttribute
-            ("times",s.getAttribute("times")==null
-                    ?1:((Integer)s.getAttribute("times"))+1);
-    out.println(s.getAttribute("times"));
+    application.setAttribute
+            ("times", application.getAttribute("times")==null
+                    ?1:((Integer) application.getAttribute("times"))+1);
+    out.println(application.getAttribute("times"));
 %>

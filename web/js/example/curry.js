@@ -75,7 +75,8 @@ const _ = {}
 
 // curry by mask
 // This is a curry function that input unset variables by maskcode `_`.
-const curry_mask = (fn, ...p) => curry_1((...nv) =>
-    fn(...p.map(v => v === _ ? nv.shift() : v)), p.filter(e => e !== _).length);
+const curry_mask = (fn, ...p) => curry_1((...n) => 
+fn(...[...p.map(v => v === _ ? n.shift() : v),...n])
+,fn.length - p.filter(e => e !== _).length)
 
-console.log(curry_mask(l, _, 1, 2, _, _, 5)(2)(3, 4))
+console.log(curry_mask(l, _, 1, 2)(9,2)(3, 4))
