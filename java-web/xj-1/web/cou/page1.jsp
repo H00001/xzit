@@ -7,9 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+
     String attrid ="login:"+session.getAttribute("username");
     Object times = application.getAttribute(attrid);
+    application.getAttribute("login:null");
     application.setAttribute(attrid, times!=null? (Integer)times+1:1);
 %>
 <%="user:"+attrid%>
+<%="nologin:"+application.getAttribute("login:null")%>
 <%="times:"+times%>
