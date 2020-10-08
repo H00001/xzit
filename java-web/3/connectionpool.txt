@@ -1,0 +1,27 @@
+写一个线程池，要有以下步骤
+1.首先我们要有一个自定义的连接对象，这个对象能够自我回收，并且这个对象还能找到产生它的池子。这个对象需要有一个具体的连接的对象，也就是Connection
+所以写了这样的类
+public class MySqlConnection {
+    // 释放他的池子
+    final private MysqlConnectionPool pool;
+    // 具体的连接对象
+    final private Connection con;
+
+    public MySqlConnection(MysqlConnectionPool pool, Connection con) {
+        this.pool = pool;
+        this.con = con;
+    }
+
+    public void release(){
+        pool.release(this);
+    }
+    public Connection con(){
+        return con;
+    }
+}
+
+接下来我们写连接池，连接池能够存储多个连接，我们用队列来保存Queue<MySqlConnection>并且还需要产生和释放连接
+MySqlConnection acquire() // 产生
+release(MySqlConnection c）
+//释放连接
+2.如果产生过程中，池子里面没有连接了，需要重新启动新的连接。
