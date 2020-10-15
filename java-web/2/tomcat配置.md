@@ -1,6 +1,7 @@
 # 常用配置详解
 
 ## 目录结构
+
 * /bin：脚本文件目录。
 * /common/lib：存放所有web项目都可以访问的公共jar包（使用Common类加载器加载)。 
 * /conf：存放配置文件，最重要的是server.xml。
@@ -67,12 +68,12 @@
 
 1. 直接部署到webapps目录下面访问，默认的虚拟目录。
 2. 修改conf/server.xml文件。
-    <Host name="localhost" appBase="webapps" unpackWARs="true" xmlValidation="false" xmlNamespaceAware="false"></host>中加入<Context path="/test" docBase="webdemo" debug="0" reloadable="true" />。docBase目录默认使用appBase="webapps"这个目录。也可以是绝对路径。配置主目录，可以将path=""。
+    <Host name="localhost" appBase="webapps" unpackWARs="true" xmlValidation="false" xmlNamespaceAware="false"></host>
+3. 中加入<Context path="/test" docBase="webdemo" debug="0" reloadable="true" />。docBase目录默认使用appBase="webapps"这个目录。也可以是绝对路径。配置主目录，可以将path=""。
 4. 当项目没有放在webapps目录下时，可以在conf/Catalina/localhost新建一个XXX.XML文件。里面加入<Context docBase="E:webdemo" debug="0" reloadable="true" />。
        注意：这里的path属性不需要设置，设置了也不会起作用的。
        也可以使用该方法建立主目录指向另一个目录，例如：<Context docBase="E:webdemo" debug="0" reloadable="true" />命名为ROOT.xml，这样默认访问的主目录就被修改过了。
-
-4. 配置连接数
+5. 配置连接数
     maxThreads：Tomcat使用线程来处理接收的每个请求。这个值表示Tomcat可创建的最大的线程数。
     acceptCount：指定当所有可以使用的处理请求的线程数都被使用时，可以放到处理队列中的请求数，超过这个数的请求将不予处理。
     minSpareThreads：Tomcat初始化时创建的线程数。
@@ -271,7 +272,7 @@ setJAVA_OPTS=-XX:PermSize=128M
 
 3）APR(Apache Portable Runtime)：从操作系统层面解决io阻塞问题。Linux如果安装了apr和native，Tomcat直接启动就支持apr。
 
-3.2、apr模式
+3.2 apr模式
 
 安装apr以及tomcat-native
 
@@ -287,7 +288,6 @@ tar xzfv tomcat-native.tar.gz
 cd tomcat-native-1.1.32-src/jni/native
 ./configure --with-apr=/usr/bin/apr-1-config
 make && make install
-```
 
 \#注意最新版本的tomcat自带tomcat-native.war.gz，不过其版本相对于yum安装的apr过高，configure的时候会报错。
 
@@ -329,16 +329,12 @@ INFO: Starting ProtocolHandler ["http-apr-8081"]
 **一、Tomcat的缺省是多少，怎么修改**
 
 Tomcat的缺省端口号是8080.修改Tomcat端口号：
+1. 找到Tomcat目录下的conf文件夹
+2. 进入conf文件夹里面找到server.xml文件
+3. 打开server.xml文件
+4. 在server.xml文件里面找到下列信息
 
-1.找到Tomcat目录下的conf文件夹
-
-2.进入conf文件夹里面找到server.xml文件
-
-3.打开server.xml文件
-
-4.在server.xml文件里面找到下列信息
-
-maxThreads=”150″ minSpareThreads=”25″ maxSpareThreads=”75″ enableLookups=”false” redirectPort=”8443″ acceptCount=”100″ connectionTimeout=”20000″ disableUploadTimeout=”true” />
+maxThreads=”150" minSpareThreads="25" maxSpareThreads=”75″ enableLookups=”false” redirectPort="8443" acceptCount=”100″ connectionTimeout="20000" disableUploadTimeout="true" />
 
 5.把port=”8080″改成port=”8888″，并且保存
 
@@ -346,7 +342,7 @@ maxThreads=”150″ minSpareThreads=”25″ maxSpareThreads=”75″ enableLoo
 
 7、tomcat默认采用的BIO模型，在几百并发下性能会有很严重的下降。tomcat自带还有NIO的模型，另外也可以调用APR的库来实现操作系统级别控制。NIO模型是内置的，调用很方便，只需要将上面配置文件中protocol修改成 org.apache.coyote.http11.Http11NioProtocol，重启即可生效。如下面的参数配置，默认的是HTTP/1.1。
 
-<Connector port=”8080″ protocol=”org.apache.coyote.http11.Http11NioProtocol” connectionTimeout=”20000″ redirectPort=”8443″ maxThreads=”500″ minSpareThreads=”20″ acceptCount=”100″ disableUploadTimeout=”true”
+<Connector port=”8080″ protocol=”org.apache.coyote.http11.Http11NioProtocol” connectionTimeout="20000"  redirectPort=”8443″ maxThreads=”500″ minSpareThreads=”20″ acceptCount=”100″ disableUploadTimeout=”true”
 
 enableLookups=”false” URIEncoding=”UTF-8″ />
 
@@ -380,6 +376,10 @@ useURIValidationHack:
 
 【security】
 
+```
+
+```
+
 if (connector.getUseURIValidationHack()) {
 
 String uri = validate(request.getRequestURI());
@@ -402,10 +402,9 @@ req.decodedURI().duplicate(req.requestURI());
 
 req.getURLDecoder().convert(req.decodedURI(), true);
 
+```
 可以看到如果把useURIValidationHack设成”false”，可以减少它对一些url的不必要的检查从而减省开销。
-
 enableLookups=”false” ： 为了消除DNS查询对性能的影响我们可以关闭DNS查询，方式是修改server.xml文件中的enableLookups参数值。
-
 disableUploadTimeout ：类似于Apache中的keeyalive一样
 
 给Tomcat配置gzip压缩(HTTP压缩)功能
@@ -425,13 +424,12 @@ HTTP 压缩可以大大提高浏览网站的速度，它的原理是，在客户
 最后不要忘了把8443端口的地方也加上同样的配置，因为如果我们走https协议的话，我们将会用到8443端口这个段的配置，对吧？｛
 
 tomcat设置https端口时,8443和443区别:
-\1. 8443端口在访问时需要加端口号,相当于http的8080,不可通过域名直接访问,需要加上端口号;https://yuming.com:8443。
+1. 8443端口在访问时需要加端口号,相当于http的8080,不可通过域名直接访问,需要加上端口号;https://yuming.com:8443。
 
-\2. 443端口在访问时不需要加端口号,相当于http的80,可通过域名直接访问;例:https://yuming.com。
+2. 443端口在访问时不需要加端口号,相当于http的80,可通过域名直接访问;例:https://yuming.com。
 
-*问:https使用域名访问网站,而不显示端口号?
-
- 答:将端口号设置为443,即可通过域名直接访问网站
+问:https使用域名访问网站,而不显示端口号?
+答:将端口号设置为443,即可通过域名直接访问网站
 
 ｝
 
@@ -440,9 +438,7 @@ tomcat设置https端口时,8443和443区别:
 <Connector port=”8443″ protocol=”HTTP/1.1″ URIEncoding=”UTF-8″ minSpareThreads=”25″ maxSpareThreads=”75″ enableLookups=”false” disableUploadTimeout=”true” connectionTimeout=”20000″ acceptCount=”300″ maxThreads=”300″ maxProcessors=”1000″ minProcessors=”5″ useURIValidationHack=”false” compression=”on” compressionMinSize=”2048″ compressableMimeType=”text/html,text/xml,text/javascript,text/css,text/plain”
 
 SSLEnabled=”true”scheme=”https” secure=”true”clientAuth=”false” sslProtocol=”TLS”keystoreFile=”d:/tomcat2/conf/shnlap93.jks” keystorePass=”aaaaaa”/>
-
 好了，所有的Tomcat优化的地方都加上了。
-
 2、优化JDK
 
 Tomcat默认可以使用的内存为128MB,Windows下,在文件{tomcat_home}/bin/catalina.bat，Unix下，在文件$CATALINA_HOME/bin/catalina.sh的前面，增加如下设置：
@@ -580,3 +576,13 @@ Tomcat作为Web服务器，它的处理性能直接关系到用户体验，下�
 　　③、双击 apache-tomcat-6.0.16\bin 目录下的 startup.bat，启动服务器(如果一闪而过，那就是没有配置 JAVA_HOME 的环境变量)
 
 　　④、在浏览器中输入 http://localhost:8080
+```
+
+- [ ] 
+
+
+
+- [1] yyy
+- [ ] shishi
+- [x] ios
+```
