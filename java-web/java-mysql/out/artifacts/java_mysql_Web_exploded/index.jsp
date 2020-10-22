@@ -11,6 +11,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     MysqlConnectionPool p = new MysqlConnectionPool(8);
+    // 获取分页数量的现在
+    String l = request.getParameter("limit");
+    String of = request.getParameter("offset");
+    int n = Integer.parseInt(l==null?"-1":l);
+    int o = Integer.parseInt(of==null?"0":of);
+
     GetClassAndAccountService s = new GetClassAndAccountImpl();
-    s.get(out);
+    s.get(n,o,out);
 %>

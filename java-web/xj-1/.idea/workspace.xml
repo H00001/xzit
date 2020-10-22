@@ -25,10 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c71c055d-84b3-4603-8e80-dba99f5d3236" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../get_post/get.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../get_post/get.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xj_1_Web_exploded/cou/page1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/xj_1_Web_exploded/cou/page1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsp_api.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/cou/page1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/cou/page1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../offline/linux/network/config.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../offline/linux/network/config.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +69,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/apache-tomcat-9.0.37/lib/tomcat-api.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -235,6 +234,7 @@
       <workItem from="1601864758969" duration="2903000" />
       <workItem from="1601973005554" duration="3326000" />
       <workItem from="1602052420349" duration="4000" />
+      <workItem from="1601964050928" duration="67000" />
     </task>
     <servers />
   </component>
@@ -310,10 +310,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="905" height="131" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1601975193874" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1601865221294">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1601964103193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601865221294" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601964103193" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1601864767027">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
