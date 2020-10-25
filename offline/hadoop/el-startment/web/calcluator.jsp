@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: ibf
   Date: 2020/10/9
@@ -16,6 +17,7 @@
     ls.add("el ");
     ls.add("statement ");
     request.setAttribute("ls",ls);
+    request.setAttribute("hmap",new HashMap());
 %>
 ${(3+4)*9}
 <%=(3+4)*9%>
