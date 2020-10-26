@@ -6,13 +6,13 @@ import com.example.sql.conf.Conf;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.Scanner;
 
 public class MysqlConnection {
     static Conf c;
     static {
         // 加载驱动
         try {
+            // 通过配置文件加载驱动
             c = Conf.init();
             Class.forName(c.getDriver());
         } catch (Exception e) {

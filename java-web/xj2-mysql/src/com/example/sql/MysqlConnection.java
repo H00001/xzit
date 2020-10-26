@@ -11,7 +11,7 @@ public class MysqlConnection {
     static {
         // 加载驱动
         try {
-            c = Conf.init();
+            c = Conf.init("C:\\Users\\ibf\\xzit\\java-web\\xj2-mysql\\conf\\application.properties");
             Class.forName(c.getDriver());
         } catch (Exception e) {
             e.printStackTrace();
@@ -23,7 +23,9 @@ public class MysqlConnection {
 
     }
     Connection con;
+    // 连接对象
     public MysqlConnection() throws SQLException, IllegalAccessException, NoSuchFieldException, IOException {
+        //创建连接对象
         con = DriverManager.
 getConnection(c.toString(), c.getUsername(),c.getPassword());
     }
@@ -43,6 +45,7 @@ getConnection(c.toString(), c.getUsername(),c.getPassword());
         return v;
     }
     public void close() throws SQLException {
+        // 关闭连接
         con.close();
     }
 }

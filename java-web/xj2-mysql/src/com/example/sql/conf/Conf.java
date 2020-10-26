@@ -52,10 +52,9 @@ public class Conf {
         return password;
     }
 
-    public static Conf init() throws NoSuchFieldException, IOException, IllegalAccessException {
+    public static Conf init(String file) throws NoSuchFieldException, IOException, IllegalAccessException {
         File f=
-new File("C:\\Users\\ibf\\xzit\\java-web\\xj2-mysql\\conf\\" +
-              "application.properties");
+new File(file);
         // 1.读取文件
         List<String> ls= Files.readAllLines(f.toPath());
         Conf conf = new Conf();

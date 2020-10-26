@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountDao {
+    // 连接辅助对象 MysqlConnection
     final private MysqlConnection con;
     public AccountDao() throws SQLException, IllegalAccessException, NoSuchFieldException, IOException {
         con = new MysqlConnection();
