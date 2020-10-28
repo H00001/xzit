@@ -53,8 +53,7 @@ public class Conf {
     }
 
     public static Conf init(String file) throws NoSuchFieldException, IOException, IllegalAccessException {
-        File f=
-new File(file);
+        File f= new File(file);
         // 1.读取文件
         List<String> ls= Files.readAllLines(f.toPath());
         Conf conf = new Conf();

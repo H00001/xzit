@@ -13,7 +13,7 @@ public class MysqlConnection {
         // 加载驱动
         try {
             // 通过配置文件加载驱动
-            c = Conf.init();
+            c = Conf.init("C:\\Users\\ibf\\xzit\\java-web\\xj2-mysql\\conf\\application.properties");
             Class.forName(c.getDriver());
         } catch (Exception e) {
             e.printStackTrace();
